@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build Docker Image') {
       steps {
-        sh 'cd C:\\cy\\roz_cy_tests && docker build -t my-cy-image .'
+        sh 'docker build -t mycyimage .'
       }
     }
   }
