@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("verify tooling") {
             steps {
-                bat 'docker build -t my-cy-image .'
+                sh 'docker build -t my-cy-image .'
                 
                 // bat '''
                 //     docker info
