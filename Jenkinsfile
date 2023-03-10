@@ -1,16 +1,15 @@
 pipeline {
-    agent any
-    stages {
-        stage("verify tooling") {
-            steps {
-                sh 'docker build -t my-cy-image .'
-                
-                // bat '''
-                //     docker info
-                //     docker version
-                //     docker compose version
-                // '''
-            }
-        }
+  agent {
+    docker {
+      image 'docker:latest'
+      args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
+  }
+  stages {
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t my-cy-image .'
+      }
+    }
+  }
 }
