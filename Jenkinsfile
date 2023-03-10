@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t my-cy-image .'
+        bat 'docker build -t my-cy-image .'
       }
     }
   }
