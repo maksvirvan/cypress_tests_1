@@ -5,4 +5,4 @@ COPY . /app
 
 RUN npm install
 
-CMD [ "npm", "run", "%script%" ]
+CMD [ "npx", "cypress", "run" ]
