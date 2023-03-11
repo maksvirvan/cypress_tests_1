@@ -1,4 +1,4 @@
-FROM cypress/browsers:node14.16.0-chrome89-ff86
+FROM cypress/included:10.1.0
 
 WORKDIR /app
 COPY . /app
