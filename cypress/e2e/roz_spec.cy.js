@@ -4,7 +4,7 @@ describe('Rozetka.com.ua Search Functionality', () => { https://ob-dv-auth.monah
     //     cy.contains('Sign In')
     // })
 
-    it('should load the home page successfully', () => {
+    it(['smoke'], 'should load the home page successfully', () => {
         cy.visit('https://rozetka.com.ua/')
         cy.get('[title="Інтернет-магазин Rozetka.ua - №1"]').should('be.visible')
     })
