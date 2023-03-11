@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Docker Run'){
       steps {
-        bat 'winpty docker run -i -v "%cd%":/app -t my-cy-image'
+        bat 'docker run -v "%cd%":/app -t my-cy-image'
       }
     }
   }
