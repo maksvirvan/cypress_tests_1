@@ -8,7 +8,7 @@ module.exports = defineConfig({
   },
 
   scripts: {
-    test: "cypress run"
+    "cy:run": "cypress run"
   }
   
 });
