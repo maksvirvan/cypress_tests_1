@@ -13,6 +13,6 @@ describe('Rozetka.com.ua Search Functionality', () => { https://ob-dv-auth.monah
       cy.visit('https://rozetka.com.ua/')
       cy.get('[name="search"]').type('iPhone 13')
       cy.contains(' Знайти ').click()
-      cy.get('.goods-tile__title').should('contain', 'iPhone 13')
+      cy.get('.goods-tile__title').should('contain', 'qqwe')
     })
   })
