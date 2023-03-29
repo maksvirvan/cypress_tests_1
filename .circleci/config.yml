@@ -7,4 +7,4 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npx cypress run
+      - run: npm cypress run
