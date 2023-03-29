@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: myproject:latest
+      - image: myproject:app
     steps:
       - checkout
       - run: npm install
