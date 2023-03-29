@@ -1,10 +1,6 @@
 version: 2.1
-
-jobs:
-  test:
-    docker:
-      - image: myproject:app
-    steps:
-      - checkout
-      - run: npm install
-      - run: npx cypress run
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          start-command: 'npx cypress run'
