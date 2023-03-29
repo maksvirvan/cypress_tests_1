@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: $(npm bin)/cypress run
+      - run: npx cypress run
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
