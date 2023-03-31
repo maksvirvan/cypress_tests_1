@@ -2,8 +2,24 @@ version: 2.1
 
 orbs:
   cypress: cypress-io/cypress@3
+jobs:
+  build:
+    docker:
+      - image: circleci/node:14.16.1-buster
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          name: Run Cypress
+          command: >
+            docker build -t my-cy-image .
+            docker run -i -v "%cd%":/app -t my-cy-image            
 workflows:
-  use-my-orb:
+  build:
     jobs:
-      - cypress/run:
-          cypress-command: npx cypress run
+      - build
+# workflows:
+#   use-my-orb:
+#     jobs:
+#       - cypress/run:
+#           cypress-command: npx cypress run
