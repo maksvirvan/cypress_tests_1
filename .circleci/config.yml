@@ -7,5 +7,3 @@ workflows:
     jobs:
       - cypress/run:
           cypress-command: npx cypress run
-          install-browsers: true
-          start-command: 'npx cypress run'
