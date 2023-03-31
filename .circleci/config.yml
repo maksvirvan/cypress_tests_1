@@ -12,8 +12,3 @@ jobs:
       - run:
           name: Run Cypress tests
           command: npx cypress run
-    workflows:
-      version: 2
-      build-and-test:
-        jobs:
-          - build-and-test
