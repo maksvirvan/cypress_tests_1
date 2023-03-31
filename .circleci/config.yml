@@ -18,9 +18,8 @@ jobs:
           destination: results
       - store_test_results:
           path: results
-
-# workflows:
-#   use-my-orb:
-#     jobs:
-#       - cypress/run:
-#           cypress-command: npx cypress run
+workflows:
+  use-my-orb:
+    jobs:
+      - cypress/run:
+          cypress-command: npx cypress run
