@@ -1,0 +1,8 @@
+# dev/docker-compose.yml
+version: '3'
+services:
+  cimg-node:
+    image: cimg/node:current
+    volumes:
+      - ./../:/app
+    working_dir: /app
