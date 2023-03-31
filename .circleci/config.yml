@@ -5,27 +5,10 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:19.8.1
+      - image: cimg/node:current
     steps:
       - checkout
-      - setup_remote_docker
-      - run:
-          name: Install dependencies
-          command: |
-            apk add --no-cache \
-              py-pip=9.0.0-r1
-            pip install \
-              docker-compose==1.12.0 \
-              awscli==1.11.76
-      - checkout
-      - run: npm install
-      - run: docker build -t my-cy-image .
-      - run: docker run -t my-cy-image            
-workflows:
-  build:
-    jobs:
-      - build
-
+      - run: node --version
 
 # workflows:
 #   use-my-orb:
