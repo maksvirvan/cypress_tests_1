@@ -2,18 +2,8 @@ version: 2.1
 
 orbs:
   cypress: cypress-io/cypress@3
-jobs:
-  build:
-    docker:
-      - image: cimg/node:current
-    steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: npm
-      - run:
-          name: Run tests
-          command: npx cypress run
 workflows:
   use-my-orb:
     jobs:
-      - build
+      - cypress/run:
+          cypress-command: npx cypress run
