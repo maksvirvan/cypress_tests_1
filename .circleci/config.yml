@@ -1,14 +1,11 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@3
-
-jobs:
-  build-and-test:
-    executor: cypress/default
-    steps:
-      - checkout
-      - cypress/install
-      - run:
-          name: Run Cypress tests
-          command: npx cypress run
+  cypress: cypress-io/cypress@
+workflows:
+  use-my-orb:
+    jobs:
+      - cypress/run:
+          cypress-command: npx cypress run
+          install-browsers: true
+          start-command: 'npx cypress run'
