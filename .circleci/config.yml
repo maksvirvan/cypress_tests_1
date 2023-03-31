@@ -13,13 +13,7 @@ jobs:
       - run:
           name: Run tests
           command: npx cypress run
-      - store_artifacts:
-          path: results
-          destination: results
-      - store_test_results:
-          path: results
 workflows:
   use-my-orb:
     jobs:
-      - cypress/run:
-          cypress-command: npx cypress run
+      - build
