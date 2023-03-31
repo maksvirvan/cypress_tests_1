@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/node:14.16.1-buster
+      - image: cimg/node:19.8.1
     steps:
       - checkout
       - run: npm install
@@ -13,7 +13,7 @@ jobs:
           name: Run Cypress
           command: >
             docker build -t my-cy-image .
-            docker run -t my-cy-image            
+            docker run -i -v "%cd%":/app -t my-cy-image            
 workflows:
   build:
     jobs:
