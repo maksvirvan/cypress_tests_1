@@ -14,11 +14,11 @@ jobs:
       - run:
           name: Save screenshots
           command: |
-            mkdir -p cypress/artifacts/screenshots
+            mkdir -p cypress/results
             find cypress/results/videos -name "*.mp4" -exec mv {} cypress/artifacts \;
             find cypress/results/screenshots -name "*.png" -exec mv {} cypress/artifacts/screenshots \;
       - store_artifacts:
-          path: cypress/artifacts
+          path: cypress/results
           destination: cypress-artifacts
 workflows:
   use-my-orb:
