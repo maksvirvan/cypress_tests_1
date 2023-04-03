@@ -2,6 +2,24 @@ version: 2.1
 
 orbs:
   cypress: cypress-io/cypress@3
+jobs:
+  build-and-test:
+    docker:
+      - image: cypress/included:8.4.0
+    steps:
+      - checkout
+      - run: npx cypress run
+      - store_test_results:
+          path: cypress/results
+      - run:
+          name: Save screenshots
+          command: |
+            mkdir -p cypress/artifacts/screenshots
+            find cypress/videos -name "*.mp4" -exec mv {} cypress/artifacts \;
+            find cypress/screenshots -name "*.png" -exec mv {} cypress/artifacts/screenshots \;
+      - store_artifacts:
+          path: cypress/artifacts
+          destination: cypress-artifacts
 workflows:
   use-my-orb:
     jobs:
