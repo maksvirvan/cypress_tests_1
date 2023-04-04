@@ -3,7 +3,6 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/openjdk:14.0
-    working_directory: /cypress/results
     steps:
       - checkout
       - setup_remote_docker
