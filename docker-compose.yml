@@ -3,5 +3,5 @@ services:
   cypress:
     build: .
     volumes:
-      - ./:/app
+      - .:/app
     command: "npx cypress run"
