@@ -1,10 +1,24 @@
-version: '3'
-services:
-  cypress:
-    build: .
-    volumes:
-      - .:/app
-    command: "npx cypress run"
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: docker:20.10.11
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build and test
+          command: |
+            docker-compose build
+            docker-compose run cypress
+      - store_artifacts:
+          path: cypress/results/screenshots
+          destination: screenshots
+      - store_artifacts:
+          path: cypress/results/videos
+          destination: videos
+
 workflows:
   main:
     jobs:
