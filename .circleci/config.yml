@@ -25,4 +25,4 @@ workflows:
     jobs:
       - cypress/run:
           cypress-command: 'npx cypress open'
-      # - build-and-test
+      - build-and-test
