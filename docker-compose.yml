@@ -2,6 +2,6 @@ version: '3'
 services:
   cypress:
     build: .
-    volumes:
-      - ./cypress/results:/app/cypress/results
+    # volumes:
+    #   - ./cypress/results:/app/cypress/results
     command: "npx cypress run --config-file ./cypress.config.js"
