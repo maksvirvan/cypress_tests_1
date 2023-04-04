@@ -10,7 +10,8 @@ jobs:
       - run:
           name: Build and test
           command: |
-            docker-compose up
+            docker-compose build
+            docker-compose run cypress
       - store_artifacts:
           path: cypress/results/screenshots
           destination: screenshots
