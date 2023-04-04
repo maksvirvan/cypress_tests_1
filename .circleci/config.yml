@@ -12,7 +12,7 @@ jobs:
             docker-compose build
             docker-compose run cypress
       - store_artifacts:
-          path: /cypress/results
+          path: app/cypress/results/screenshots
           destination: artifact-file
 
 
