@@ -1,28 +1,11 @@
-version: 2.1
-
-jobs:
-  build:
-    docker:
-      - image: .
-    steps:
-      - checkout
-      - run: npm install
-  test:
-    docker:
-      - image: .
-    steps:
-      - checkout
-      - run: npx cypress run
-      - store_artifacts:
-          path: cypress/results/screenshots
-          destination: screenshots
-      - store_artifacts:
-          path: cypress/results/videos
-          destination: videos
+version: '3'
+services:
+  cypress:
+    build: .
+    volumes:
+      - .:/app
+    command: "npx cypress run"
 workflows:
-  build-and-test:
+  main:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - build-and-test
