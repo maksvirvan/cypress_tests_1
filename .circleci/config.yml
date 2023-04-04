@@ -1,24 +1,28 @@
 version: 2.1
 
 jobs:
-  build-and-test:
+  build:
     docker:
-      - image: docker:20.10.11
+      - image: my-image:latest #docker:20.10.11
     steps:
       - checkout
-      - setup_remote_docker
-      - run:
-          name: Build and test
-          command: |
-            docker-compose up
+      - run: npm install
+  test:
+    docker:
+      - image: my-image:latest
+    steps:
+      - checkout
+      - run: npx cypress run
       - store_artifacts:
           path: cypress/results/screenshots
           destination: screenshots
       - store_artifacts:
           path: cypress/results/videos
           destination: videos
-
 workflows:
-  main:
+  build-and-test:
     jobs:
-      - build-and-test
+      - build
+      - test:
+          requires:
+            - build
