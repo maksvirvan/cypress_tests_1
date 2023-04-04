@@ -8,9 +8,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Cypress
-          command: npm install cypress
-      - run:
           name: Open Cypress UI
           command: npx cypress open
       - setup_remote_docker
