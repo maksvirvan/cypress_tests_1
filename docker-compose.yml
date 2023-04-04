@@ -4,4 +4,4 @@ services:
     build: .
     volumes:
       - .:/app
-    command: "npx cypress run"
+    command: "npx cypress run --sync --cypress-config-file ./cypress.config.js"
