@@ -1,16 +1,17 @@
 version: 2.1
-orbs:
-  cypress: cypress-io/cypress@3
 jobs:
   build-and-test:
     docker:
       - image: cimg/openjdk:14.0
     steps:
       - checkout
-      - run: npm install
-      - cypress/install
+      - run:
+          name: Install Cypress
+          command: npm install cypress
+      - run:
+          name: Open Cypress UI
+          command: npx cypress open
       - setup_remote_docker
-      - run: "npx cypress open"
       - run:
           name: Build and test
           command: |
