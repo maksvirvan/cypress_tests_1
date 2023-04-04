@@ -8,14 +8,6 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Start Cypress on the host machine
-          background: true
-          command: |
-            export DISPLAY=:99
-            Xvfb :99 -screen 0 1024x768x16 &
-            sleep 3
-            npx cypress open
-      - run:
           name: Build and test
           command: |
             docker-compose build
