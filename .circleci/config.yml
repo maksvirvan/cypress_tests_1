@@ -11,9 +11,8 @@ jobs:
           command: |
             docker-compose build
             docker-compose run cypress
-      - store_artifacts:
-          path: ./cypress/results/screenshots
-          destination: screenshots
+      - store_test_results:
+          path: cypress/results/screenshots
       - store_artifacts:
           path: cypress/results/videos
           destination: videos
