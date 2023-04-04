@@ -7,9 +7,6 @@ jobs:
       - image: cimg/openjdk:14.0
     steps:
       - checkout
-      - run:
-          name: Open Cypress UI
-          command: npx cypress open
       - setup_remote_docker
       - run:
           name: Build and test
@@ -26,4 +23,6 @@ jobs:
 workflows:
   main:
     jobs:
+      - cypress/run:
+          cypress-command: 'npx cypress open'
       - build-and-test
