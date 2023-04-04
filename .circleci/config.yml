@@ -10,10 +10,7 @@ jobs:
       - run: npm install
       - cypress/install
       - setup_remote_docker
-      - cypress/run:
-          start-command: 'npx cypress open'
-          pre-steps:
-            - run: echo "Running pre-command"
+      - run: "npx cypress open"
       - run:
           name: Build and test
           command: |
