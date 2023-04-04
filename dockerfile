@@ -1,6 +1,6 @@
 FROM cypress/browsers:node14.7.0-chrome84
 
 WORKDIR /
-COPY . /
+COPY . .
 
 RUN npm install 
