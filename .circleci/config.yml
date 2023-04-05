@@ -3,6 +3,7 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/openjdk:14.0
+    working_directory: /tmp
     steps:
       - checkout
       - setup_remote_docker
@@ -12,7 +13,7 @@ jobs:
             docker-compose build
             docker-compose run cypress
       - store_artifacts:
-          path:  /app/cypress/results/screenshots/
+          path: /tmp/art-1
           destination: artifact-file
 workflows:
   main:
