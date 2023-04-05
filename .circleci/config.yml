@@ -11,8 +11,8 @@ jobs:
           command: |
             docker-compose build
             docker-compose run cypress
-      # - run: |
-      #       docker cp app:/output /path/in/your/job/space
+      - run: |
+            docker cp app:/cypress/results/screenshots /app/cypress/results/screenshots
 workflows:
   main:
     jobs:
