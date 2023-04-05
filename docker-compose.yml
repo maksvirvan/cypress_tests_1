@@ -2,6 +2,6 @@ version: '3'
 services:
   cypress:
     build: .
-    volumes:
-      - .:cypress/results/screenshots
+    # volumes:
+    #   - .:cypress/results/screenshots
     command: "npx cypress run"
