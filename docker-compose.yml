@@ -5,3 +5,5 @@ services:
     # volumes:
     #   - ./cypress/results:/app/cypress/results
     command: "npx cypress run --config-file ./cypress.config.js"
+    volumes:
+      - ./cypress/reports/screenshots:/app/cypress/results/screenshots

@@ -14,8 +14,6 @@ jobs:
       - store_artifacts:
           path: app/cypress/results/screenshots
           destination: artifact-file
-
-
 workflows:
   main:
     jobs:
