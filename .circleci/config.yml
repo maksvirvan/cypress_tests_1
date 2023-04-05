@@ -11,8 +11,9 @@ jobs:
           command: |
             docker-compose build
             docker-compose run cypress
-      - run: |
-            docker cp app:/cypress/results/screenshots /app/cypress/results/screenshots
+      - store_artifacts:
+          path: app/cypress/results/screenshots
+          destination: artifact-file
 workflows:
   main:
     jobs:
